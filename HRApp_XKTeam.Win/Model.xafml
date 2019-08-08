@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="BO_Opportunity">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Cancel" Caption="Thoát" />
+      <Action Id="CancelAction" Caption="Thoát" />
+      <Action Id="DialogCancel" Caption="Thoát" />
+      <Action Id="Logon" Caption="Đăng nhập" />
+      <Action Id="RegisterEvent" ToolTip="Đăng kí sự kiện bên dưới" ImageName="BO_Task" />
+    </Actions>
+  </ActionDesign>
+  <NavigationItems NavigationStyle="Accordion" />
+  <Options FormStyle="Ribbon" UIType="TabbedMDI" />
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="19.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="19.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="AuthenticationStandardLogonParameters_DetailView">
+      <Items>
+        <StaticImage Id="LogonImage" Caption="LogonImage(4)" ImageName="avatar" SvgImageHeight="72" SvgImageWidth="72" SizeMode="Zoom" />
+        <StaticText Id="LogonText" Caption="LogonText(7)" Text="Mời bạn nhập Tên Đăng Nhập và Mật Khẩu!" />
+        <PropertyEditor Id="Password" Caption="Mật Khẩu" />
+        <PropertyEditor Id="UserName" Caption="Tên Đăng Nhập" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="RootGroup" RelativeSize="100">
+            <LayoutGroup Id="ImageGroup" ImageName="Security_Lock" TextAlignMode="AlignWithChildren" RelativeSize="14.495114006514658">
+              <LayoutItem Id="LogonImage" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="EditorsGroup" RelativeSize="85.504885993485345">
+              <LayoutGroup Id="Text" TextAlignMode="AlignWithChildren" RelativeSize="7.1611253196930944">
+                <LayoutItem Id="LogonText" RelativeSize="100" />
+              </LayoutGroup>
+              <LayoutGroup Id="Editors" Caption="Editors" RelativeSize="92.8388746803069">
+                <LayoutItem Id="UserName" Index="0" RelativeSize="7.43801652892562" />
+                <LayoutItem Id="Password" ViewItem="Password" Index="1" RelativeSize="92.561983471074385" IsNewNode="True" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Department_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" Caption="Oid" />
+        <ColumnInfo Id="tenBanNganh" Index="1" />
+        <ColumnInfo Id="maBanNganh" Index="2" />
+        <ColumnInfo Id="ngayThanhLap" Index="3" />
+        <ColumnInfo Id="soLuong" Index="4" />
+        <ColumnInfo Id="moTa" Index="5" />
+        <ColumnInfo Id="truongBan" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="Event_attendedEvent_ListView" AllowEdit="False" DetailViewID="AttendedEvent_DetailView" MasterDetailView="AttendedEvent_DetailView">
+      <Columns>
+        <ColumnInfo Id="maThanhVien" PropertyName="thanhVien.maThanhVien" View="" Width="70" Index="0" Caption="Mã Thành Viên" IsNewNode="True" />
+        <ColumnInfo Id="thanhVien" Index="1" />
+        <ColumnInfo Id="banHoatDong" PropertyName="thanhVien.banNganh" View="" Width="70" Index="2" Caption="Ban Hoạt Động" IsNewNode="True" />
+        <ColumnInfo Id="gioiTinh" PropertyName="thanhVien.gioiTinh" View="" Width="70" Index="3" Caption="Giới Tính" IsNewNode="True" />
+        <ColumnInfo Id="SDT" PropertyName="thanhVien.soDienThoai" View="" Width="70" Index="4" Caption="SĐT" IsNewNode="True" />
+        <ColumnInfo Id="diemDanh" Index="5" />
+      </Columns>
+    </ListView>
+    <ListView Id="Event_attendedEvent_ListView_Copy" ClassName="HRApp_XKTeam.Module.BusinessObjects.AttendedEvent" Caption="Danh Sách Tham Gia Sự Kiện" Criteria="[diemDanh] = True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="suKien" PropertyName="suKien" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="maThanhVien" PropertyName="thanhVien.maThanhVien" Width="70" Index="0" Caption="Mã Thành Viên" IsNewNode="True" />
+        <ColumnInfo Id="thanhVien" PropertyName="thanhVien" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="banNganh" Caption="Ban Hoạt Động" PropertyName="thanhVien.banNganh" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="gioiTinh" Caption="Giới Tính" PropertyName="thanhVien.gioiTinh" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="SDT" Caption="SĐT" PropertyName="thanhVien.soDienThoai" Index="3" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Event_DetailView">
+      <Items>
+        <PropertyEditor Id="attendedEvent_Copy" PropertyName="attendedEvent" View="Event_attendedEvent_ListView_Copy" Caption="Danh Sách Đã Tham Gia" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="attendedEvent_Group_Copy" Index="1" Direction="Horizontal" ShowCaption="True" Caption="Danh Sách Đã Tham Gia" IsNewNode="True">
+            <LayoutItem Id="attendedEvent" ShowCaption="" Index="0" ViewItem="attendedEvent_Copy" IsNewNode="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Event_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" Caption="Oid" />
+        <ColumnInfo Id="tenSuKien" Index="0" />
+        <ColumnInfo Id="maSuKien" Index="1" />
+        <ColumnInfo Id="nguoiNamChinh" Index="2" />
+        <ColumnInfo Id="thoiGian" Index="3" />
+        <ColumnInfo Id="diaDiem" Index="4" />
+        <ColumnInfo Id="soLuongDuKien" Index="5" />
+        <ColumnInfo Id="soLuong" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="Member_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" Caption="Oid" />
+        <ColumnInfo Id="TenThanhVien" Index="1" />
+        <ColumnInfo Id="maThanhVien" Index="2" />
+        <ColumnInfo Id="ngaySinh" Index="3" />
+        <ColumnInfo Id="gioiTinh" Index="4" />
+        <ColumnInfo Id="MSSV" Index="5" />
+        <ColumnInfo Id="sucKhoe" Index="6" />
+        <ColumnInfo Id="soDienThoai" Index="7" />
+        <ColumnInfo Id="email" Index="8" />
+        <ColumnInfo Id="facebook" Index="9" />
+        <ColumnInfo Id="banNganh" Index="10" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

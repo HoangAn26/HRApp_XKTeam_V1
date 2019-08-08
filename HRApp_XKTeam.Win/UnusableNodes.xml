@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="SuKien_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="ThanhVienDaThamGias_Copy" PropertyName="ThanhVienDaThamGias" View="SuKien_ThanhVienDaThamGias_ListView_Copy" Caption="Danh Sách Đã Tham Gia" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="ThanhVienDaThamGias_Group_Copy" Index="1" Direction="Horizontal" ShowCaption="True">
+            <LayoutItem Id="ThanhVienDaThamGias" ViewItem="ThanhVienDaThamGias_Copy" ShowCaption="" Index="0" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SuKien_ThanhVienDaThamGias_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="id" Index="0" />
+        <ColumnInfo Id="maThanhVien" PropertyName="thanhVien.maThanhVien" Index="1" />
+        <ColumnInfo Id="thanhVien" Index="2" />
+        <ColumnInfo Id="gioiTinh" PropertyName="thanhVien.gioiTinh" Index="3" />
+        <ColumnInfo Id="banNganh" PropertyName="thanhVien.banNganh" Index="4" />
+        <ColumnInfo Id="SDT" PropertyName="thanhVien.soDienThoai" Index="5" />
+        <ColumnInfo Id="diemDanh" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="SuKien_ThanhVienDaThamGias_ListView_Copy" ClassName="HRApp_XKTeam.Module.BusinessObjects.ThanhVienThamGiaSuKien" Criteria="[diemDanh] = True">
+      <Columns Id="Columns">
+        <ColumnInfo Id="id" PropertyName="id" View="" Width="50" Index="0" />
+        <ColumnInfo Id="maThanhVien" PropertyName="thanhVien.maThanhVien" Index="1" />
+        <ColumnInfo Id="thanhVien" PropertyName="thanhVien" View="" Width="70" Index="2" />
+        <ColumnInfo Id="gioiTinh" PropertyName="thanhVien.gioiTinh" Index="3" />
+        <ColumnInfo Id="banNganh" PropertyName="thanhVien.banNganh" Index="4" />
+        <ColumnInfo Id="SDT" PropertyName="thanhVien.soDienThoai" Index="5" />
+      </Columns>
+    </ListView>
+  </Views>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="DangKiSuKien" ImageName="Actions_CheckCircled" />
+    </Actions>
+  </ActionDesign>
+</Application>
