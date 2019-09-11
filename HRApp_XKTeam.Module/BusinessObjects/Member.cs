@@ -4,6 +4,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,20 +100,24 @@ namespace HRApp_XKTeam.Module.BusinessObjects
             get { return _soDienThoai; }
             set { SetPropertyValue("soDienThoai", ref _soDienThoai, value); }
         }
-        string _email;
+
+        HyperLinkEdit _email;
         [XafDisplayName("Email")]
-        public string email
+        public HyperLinkEdit email
         {
             get { return _email; }
             set { SetPropertyValue("email", ref _email, value); }
         }
-        string _facebook;
+
+
+        HyperLinkEdit _facebook;
         [XafDisplayName("Facebook")]
-        public string facebook
+        public HyperLinkEdit facebook
         {
-            get { return _facebook; }
-            set { SetPropertyValue("facebook", ref _facebook, value); }
+            get => _facebook;
+            set => SetPropertyValue("facebook", ref _facebook, value);
         }
+        
         Department _banNganh;
         [XafDisplayName("Ban Hoạt Động")]
         [Association("Department-Members")]
@@ -144,6 +149,14 @@ namespace HRApp_XKTeam.Module.BusinessObjects
         public XPCollection<Meeting> Hops
         {
             get => GetCollection<Meeting>(nameof(Hops));
+        }
+
+        int _diemThiDua;
+        [XafDisplayName("Điểm Thi Đua")]
+        public int diemThiDua
+        {
+            get => _diemThiDua;
+            set => SetPropertyValue("diemThiDua", ref _diemThiDua, value);
         }
         //bool _dangKiThamGiaSuKien;
         //[XafDisplayName("Đăng Kí")]

@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.Persistent.BaseImpl;
 
 namespace HRApp_XKTeam.Module.BusinessObjects
 {
@@ -70,8 +71,7 @@ namespace HRApp_XKTeam.Module.BusinessObjects
         [XafDisplayName("Số Lượng Tham Gia")]
         public int soLuong
         {
-            get => _soLuong; 
-            set => SetPropertyValue("soLuong", ref _soLuong, value) ; //get from attendedEvent
+            get => _soLuong = attendedEvent.Count();// retrieve from attendedEvent 
         }
 
         [Association(@"Events-Members")]
@@ -80,6 +80,13 @@ namespace HRApp_XKTeam.Module.BusinessObjects
         public XPCollection<Member> ThanhViens
         {
             get { return GetCollection<Member>("ThanhViens"); }
+        }
+        FileData _keHoach;
+        [XafDisplayName("Tệp Kế hoạch")]
+        public FileData keHoach
+        {
+            get => _keHoach;
+            set => SetPropertyValue("keHoach", ref _keHoach, value);
         }
 
         [Association("Event-AttendedEvents")]

@@ -24,6 +24,16 @@ namespace HRApp_XKTeam.Module.BusinessObjects
         {
             base.AfterConstruction();
         }
+        int _STT;
+        [XafDisplayName("STT")]
+        public int STT
+        {
+            get { return _STT; }
+            set
+            {
+                SetPropertyValue("STT", ref _STT, value);  
+            }
+        }
 
         bool _diemDanh;
         [XafDisplayName("Điểm Danh")]

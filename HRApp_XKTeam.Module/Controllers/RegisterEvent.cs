@@ -47,6 +47,7 @@ namespace HRApp_XKTeam.Module.Controllers
             Event suKien = (Event)View.CurrentObject;//Tro vào object hiện tại đang view lên
 
             XPClassInfo nguoiDungInfo = suKien.Session.GetClassInfo(typeof(NguoiDung));
+
             NguoiDung nguoiDung = (NguoiDung)suKien.Session.GetObjectByKey(nguoiDungInfo, SecuritySystem.CurrentUserId);
 
             NguoiDung nguoiDung1 = suKien.Session.GetObjectByKey<NguoiDung>(SecuritySystem.CurrentUserId);
@@ -64,7 +65,10 @@ namespace HRApp_XKTeam.Module.Controllers
                     checkThamGia = true;
             }
             if (checkThamGia == false)
+            {
+                thanhVienThamSuKien.STT = suKien.attendedEvent.Count() + 1;
                 suKien.attendedEvent.Add(thanhVienThamSuKien);
+            }
         }
     }
 }

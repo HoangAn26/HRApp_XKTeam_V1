@@ -68,8 +68,17 @@ namespace HRApp_XKTeam.Module.BusinessObjects
         [XafDisplayName("Số Lượng")]
         public int soLuong
         {
-            get => _soLuong;
-            set => _soLuong = khongThamGia.Count(); //count from khongThamGia
+            get => _soLuong = thamGia.Count();
+        }
+
+        int _mucDiemThiDua;
+        [VisibleInDetailView(false)]
+        [VisibleInListView(true)]
+        [XafDisplayName("Mức Điểm Thi Đua")]
+        public int mucDiemThiDua
+        {
+            get => _mucDiemThiDua;
+            set => _mucDiemThiDua = 5; //mặc định là 5 điểm.
         }
 
         [Association("Meeting-Members")]
@@ -84,6 +93,5 @@ namespace HRApp_XKTeam.Module.BusinessObjects
         {
             get => Session.Query<Member>().Where(thanhvien => !thanhvien.Hops.Contains<Meeting>(this)).ToList();
         }
-
     }
 }

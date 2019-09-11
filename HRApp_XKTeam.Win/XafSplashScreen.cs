@@ -68,5 +68,25 @@ namespace HRApp_XKTeam.Win {
         {
 
         }
+
+        private void progressBarControl_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,6 +32,10 @@
             this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationWindowsFormsModule = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
+            this.pivotGridModule1 = new DevExpress.ExpressApp.PivotGrid.PivotGridModule();
+            this.pivotGridWindowsFormsModule1 = new DevExpress.ExpressApp.PivotGrid.Win.PivotGridWindowsFormsModule();
+            this.fileAttachmentsWindowsFormsModule1 = new DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsWindowsFormsModule();
+            this.hyperLinkPropertyEditorWindowsFormsModule1 = new HyperLinkPropertyEditor.Win.HyperLinkPropertyEditorWindowsFormsModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
@@ -60,8 +64,12 @@
             this.Modules.Add(this.validationModule);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.validationWindowsFormsModule);
+            this.Modules.Add(this.pivotGridModule1);
             this.Modules.Add(this.module4);
             this.Modules.Add(this.securityModule1);
+            this.Modules.Add(this.pivotGridWindowsFormsModule1);
+            this.Modules.Add(this.fileAttachmentsWindowsFormsModule1);
+            this.Modules.Add(this.hyperLinkPropertyEditorWindowsFormsModule1);
             this.Security = this.securityStrategyComplex1;
             this.UseOldTemplates = false;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.HRApp_XKTeamWindowsFormsApplication_DatabaseVersionMismatch);
@@ -81,5 +89,9 @@
         private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
         private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule;
+        private DevExpress.ExpressApp.PivotGrid.PivotGridModule pivotGridModule1;
+        private DevExpress.ExpressApp.PivotGrid.Win.PivotGridWindowsFormsModule pivotGridWindowsFormsModule1;
+        private DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsWindowsFormsModule fileAttachmentsWindowsFormsModule1;
+        private HyperLinkPropertyEditor.Win.HyperLinkPropertyEditorWindowsFormsModule hyperLinkPropertyEditorWindowsFormsModule1;
     }
 }
